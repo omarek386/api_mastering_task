@@ -1,13 +1,18 @@
+import 'package:api_mastering_task/core/Router/routes.dart';
+import 'package:api_mastering_task/core/themes/app_theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'features/home/view/screens/home_screen.dart';
+import 'core/Router/app_router.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp(
+    appRouter: AppRouter(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key, required this.appRouter});
+  final AppRouter appRouter;
 
   // This widget is the root of your application.
   @override
@@ -16,16 +21,15 @@ class MyApp extends StatelessWidget {
       designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (_, child) => MaterialApp(
-        title: 'Mastering Api Task',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-            seedColor: Colors.deepPurple,
-          ),
-          useMaterial3: true,
-        ),
-        home: const HomeScreen(),
-      ),
+      builder: (_, child) {
+        return MaterialApp(
+          title: 'Mastering Api Task',
+          theme: Appthemedata.themeData,
+          debugShowCheckedModeBanner: false,
+          onGenerateRoute: appRouter.onGenerateRoute,
+          initialRoute: Routes.home,
+        );
+      },
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Spacer {
+class Spacing {
   static Widget verticalSpace(double space) {
     return SizedBox(height: space.h);
   }
