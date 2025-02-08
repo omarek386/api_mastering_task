@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,7 +10,7 @@ class AppInPutField extends StatefulWidget {
   final TextEditingController emailController;
   final bool isPassword;
   final TextInputType? keyBoardType;
-  bool isSecure = false;
+  bool isSecure = true;
 
   AppInPutField(
       {super.key,
@@ -47,7 +49,7 @@ class _AppInPutFieldState extends State<AppInPutField> {
                 fontSize: 16.sp,
               ),
               controller: widget.emailController,
-              obscureText: widget.isSecure,
+              obscureText: widget.isPassword ? widget.isSecure : false,
               decoration: InputDecoration(
                 hintText: widget.hint,
                 hintStyle: TextStyle(
@@ -64,6 +66,7 @@ class _AppInPutFieldState extends State<AppInPutField> {
                         ),
                         onPressed: () {
                           widget.isSecure = !widget.isSecure;
+                          log('isSecure: ${widget.isSecure}');
                           setState(() {});
                         },
                       )

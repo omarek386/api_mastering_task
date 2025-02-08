@@ -1,6 +1,6 @@
 import 'package:api_mastering_task/core/widget/app_in_put_field.dart';
 import 'package:api_mastering_task/core/widget/image_edit.dart';
-import 'package:api_mastering_task/features/update/view/widgets/update_button.dart';
+import 'package:api_mastering_task/features/update/presentation/widgets/update_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -47,10 +47,12 @@ class UpdateDataScreen extends StatelessWidget {
               AppInPutField(
                 emailController: TextEditingController(),
                 hint: 'Password',
+                isPassword: true,
               ),
               AppInPutField(
                 emailController: TextEditingController(),
                 hint: 'Confirm Password',
+                isPassword: true,
               ),
               Spacing.verticalSpaceMedium(),
               UpdateButton(),

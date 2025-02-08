@@ -2,8 +2,8 @@ import 'package:api_mastering_task/core/Router/routes.dart';
 import 'package:api_mastering_task/core/helper/tools/spacer.dart';
 import 'package:api_mastering_task/core/widget/app_in_put_field.dart';
 
-import 'package:api_mastering_task/features/authentication/view/widgets/auth_title_text.dart';
-import 'package:api_mastering_task/features/authentication/view/widgets/sign_up_here.dart';
+import 'package:api_mastering_task/features/authentication/presentation/widgets/auth_title_text.dart';
+import 'package:api_mastering_task/features/authentication/presentation/widgets/sign_up_here.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

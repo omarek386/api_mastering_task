@@ -1,10 +1,10 @@
 import 'package:api_mastering_task/core/Router/routes.dart';
 import 'package:flutter/material.dart';
 
-import '../../features/authentication/view/screens/sign_in_screen.dart';
-import '../../features/authentication/view/screens/sign_up_screen.dart';
-import '../../features/home/view/screens/home_screen.dart';
-import '../../features/update/view/screens/update_data_screen.dart';
+import '../../features/authentication/presentation/screens/sign_in_screen.dart';
+import '../../features/authentication/presentation/screens/sign_up_screen.dart';
+import '../../features/home/presentation/screens/home_screen.dart';
+import '../../features/update/presentation/screens/update_data_screen.dart';
 
 class AppRouter {
   Route onGenerateRoute(RouteSettings settings) {

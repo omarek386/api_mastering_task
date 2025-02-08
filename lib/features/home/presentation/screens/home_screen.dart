@@ -1,9 +1,9 @@
 import 'package:api_mastering_task/core/helper/tools/spacer.dart';
-import 'package:api_mastering_task/features/home/view/widgets/data_text_box.dart';
-import 'package:api_mastering_task/features/home/view/widgets/image_show.dart';
-import 'package:api_mastering_task/features/home/view/widgets/logout_button.dart';
-import 'package:api_mastering_task/features/home/view/widgets/title_text_box.dart';
-import 'package:api_mastering_task/features/home/view/widgets/update_data.dart';
+import 'package:api_mastering_task/features/home/presentation/widgets/data_text_box.dart';
+import 'package:api_mastering_task/features/home/presentation/widgets/image_show.dart';
+import 'package:api_mastering_task/features/home/presentation/widgets/logout_button.dart';
+import 'package:api_mastering_task/features/home/presentation/widgets/title_text_box.dart';
+import 'package:api_mastering_task/features/home/presentation/widgets/update_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
