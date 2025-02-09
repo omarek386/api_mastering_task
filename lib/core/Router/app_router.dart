@@ -12,6 +12,7 @@ import '../../features/update/presentation/screens/update_data_screen.dart';
 
 class AppRouter {
   Route onGenerateRoute(RouteSettings settings) {
+    AuthCubit authCubit = AuthCubit(apiConsumer: DioConsumer(dio: Dio()));
     switch (settings.name) {
       case Routes.home:
         return MaterialPageRoute(
@@ -23,12 +24,13 @@ class AppRouter {
       case Routes.login:
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
-                  create: (context) =>
-                      AuthCubit(apiConsumer: DioConsumer(dio: Dio())),
+                  create: (context) => authCubit,
                   child: const SignInScreen(),
                 ));
       case Routes.register:
-        return MaterialPageRoute(builder: (_) => const SignUpScreen());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                create: (context) => authCubit, child: const SignUpScreen()));
       case Routes.updateProfile:
         return MaterialPageRoute(builder: (_) => const UpdateDataScreen());
       default:

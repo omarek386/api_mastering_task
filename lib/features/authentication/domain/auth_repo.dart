@@ -6,6 +6,7 @@ import '../../../core/services/API/Errors/server_errors.dart';
 import '../../../core/services/API/constants/api_endpoints.dart';
 import '../../../core/services/API/constants/api_keys.dart';
 import '../../../core/services/API/consumers/api_consumer.dart';
+import '../../../core/services/API/functions/upload_image_to_api.dart';
 import '../../../core/services/Database/cache_helper.dart';
 import '../data/sign_in_model.dart';
 
@@ -40,7 +41,7 @@ class AuthRepo {
       required String email,
       required String pass,
       required String cPass,
-      required XFile profilePic}) async {
+      required profilePic}) async {
     try {
       final response = await apiConsumer.post(
         ApiEndpoints.signUp,
@@ -59,6 +60,52 @@ class AuthRepo {
       return Left(response['message']);
     } on ServerErrors catch (e) {
       return Right(e.errorModel);
+    } catch (e) {
+      return Right(ErrorModel(errorMessage: e.toString(), status: 400));
+    }
+  }
+
+  // Future<Either<String, ErrorModel>> updateProfile(
+  //     {required String name,
+  //     required String phone,
+  //     required String email,
+  //     required String pass,
+  //     required String cPass,
+  //     required XFile profilePic}) async {
+  //   try {
+  //     final response = await apiConsumer.put(
+  //       ApiEndpoints.updateProfile,
+  //       isFormData: true,
+  //       data: {
+  //         ApiKeys.name: name,
+  //         ApiKeys.phone: phone,
+  //         ApiKeys.email: email,
+  //         ApiKeys.password: pass,
+  //         ApiKeys.confirmPassword: cPass,
+  //         ApiKeys.location:
+  //             '{"name":"methalfa","address":"meet halfa","coordinates":[30.1572709,31.224779]}',
+  //         ApiKeys.profilePic: profilePic,
+  //       },
+  //     );
+  //     return Left(response['message']);
+  //   } on ServerErrors catch (e) {
+  //     return Right(e.errorModel);
+  //   }
+  // }
+
+  Future addProfilePic() async {
+    final XFile? pickedFile =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+    await CacheHelper.saveData(
+        key: ApiKeys.profilePic, value: pickedFile?.path);
+    return pickedFile;
+  }
+
+  Future uploadImage(XFile? imageFile) async {
+    if (imageFile != null) {
+      return await uploadImageToAPI(imageFile);
+    } else {
+      return null;
     }
   }
 }

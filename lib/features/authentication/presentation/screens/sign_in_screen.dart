@@ -1,4 +1,5 @@
 import 'package:api_mastering_task/core/Router/routes.dart';
+import 'package:api_mastering_task/core/helper/Extensions/navigation.dart';
 import 'package:api_mastering_task/core/helper/tools/spacer.dart';
 import 'package:api_mastering_task/core/widget/app_in_put_field.dart';
 import 'package:api_mastering_task/features/authentication/presentation/cubit/auth_cubit.dart';
@@ -25,7 +26,7 @@ class SignInScreen extends StatelessWidget {
               content: Text(state.message),
             ),
           );
-          Navigator.of(context).pushNamed(Routes.home);
+          context.navigateToAndReplace(Routes.home);
         } else if (state is AuthSignInError) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
@@ -57,23 +58,24 @@ class SignInScreen extends StatelessWidget {
                     Spacing.verticalSpaceLarge(),
                     AppInPutField(
                       fieldName: 'Email Address',
-                      emailController: context.read<AuthCubit>().email,
+                      controller: context.read<AuthCubit>().email,
                       gkey: context.read<AuthCubit>().emailKey,
                     ),
                     Spacing.verticalSpaceSmall(),
                     AppInPutField(
                       fieldName: 'Password',
-                      emailController: context.read<AuthCubit>().pass,
+                      controller: context.read<AuthCubit>().pass,
                       gkey: context.read<AuthCubit>().passKey,
                       isPassword: true,
                     ),
-                    SignInButton(),
                     Spacing.verticalSpaceLarge(),
                     AppTextButton(
                       title: "if you don't have account go to",
                       buttonText: 'Sign up Now',
                       navigateTo: Routes.register,
                     ),
+                    Spacing.verticalSpaceLarge(),
+                    SignInButton(),
                   ],
                 ),
               ),

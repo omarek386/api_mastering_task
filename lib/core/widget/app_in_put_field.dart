@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class AppInPutField extends StatefulWidget {
   final String? fieldName;
   final String? hint;
-  final TextEditingController emailController;
+  final TextEditingController controller;
   final bool isPassword;
   final TextInputType? keyboardType;
   final GlobalKey<FormState> gkey;
@@ -15,7 +15,7 @@ class AppInPutField extends StatefulWidget {
       required this.gkey,
       this.fieldName,
       this.hint,
-      required this.emailController,
+      required this.controller,
       this.isPassword = false,
       this.keyboardType});
 
@@ -48,6 +48,15 @@ class _AppInPutFieldState extends State<AppInPutField> {
                   } else if (widget.fieldName == 'Email Address' &&
                       !value.contains('@')) {
                     return 'Please enter a valid email';
+                  } else if (widget.fieldName == 'Phone Number' &&
+                      value.length != 11) {
+                    return 'Please enter a valid phone number';
+                  } else if (widget.fieldName == 'Password' &&
+                      value.length < 6) {
+                    return 'Password must be at least 6 characters';
+                  } else if (widget.fieldName == 'Confirm Password' &&
+                      value != widget.controller.text) {
+                    return 'Password does not match';
                   }
                   return null;
                 },
@@ -58,7 +67,7 @@ class _AppInPutFieldState extends State<AppInPutField> {
                   color: Colors.white,
                   fontSize: 16.sp,
                 ),
-                controller: widget.emailController,
+                controller: widget.controller,
                 //* to hide the password
                 obscureText: widget.isPassword ? isSecure : false,
                 //* decoration for the input field

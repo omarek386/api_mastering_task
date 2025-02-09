@@ -35,21 +35,19 @@ class AuthCubit extends Cubit<AuthState> {
   TextEditingController passUp = TextEditingController();
   TextEditingController cPassUp = TextEditingController();
 
-  GlobalKey<FormState> fKey = GlobalKey<FormState>();
-  GlobalKey<FormState> fKeyP = GlobalKey<FormState>();
-  GlobalKey<FormState> cfKeyP = GlobalKey<FormState>();
-  GlobalKey<FormState> fKeyN = GlobalKey<FormState>();
-  GlobalKey<FormState> fKeyPh = GlobalKey<FormState>();
+  GlobalKey<FormState> emailUpKey = GlobalKey<FormState>();
+  GlobalKey<FormState> passUpKey = GlobalKey<FormState>();
+  GlobalKey<FormState> nameUpKey = GlobalKey<FormState>();
+  GlobalKey<FormState> phoneUpKey = GlobalKey<FormState>();
+  GlobalKey<FormState> cPassUpKey = GlobalKey<FormState>();
 
   XFile? profilePic;
 
-  pickImage() async {
+  Future pickImage() async {
+    AuthRepo authRepo = AuthRepo(apiConsumer: apiConsumer);
     emit(AuthSignUpLoading());
-    final XFile? pickedFile =
-        await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (pickedFile != null) {
-      profilePic = pickedFile;
-    }
+    profilePic = await authRepo.addProfilePic();
+
     emit(AuthSignUpPickImage());
   }
 
@@ -59,12 +57,13 @@ class AuthCubit extends Cubit<AuthState> {
     final AuthRepo authRepo = AuthRepo(apiConsumer: apiConsumer);
     await authRepo
         .signUp(
-            name: nameup.text,
-            phone: phoneUp.text,
-            email: emailUp.text,
-            pass: passUp.text,
-            cPass: cPassUp.text,
-            profilePic: profilePic!)
+      name: nameup.text,
+      phone: phoneUp.text,
+      email: emailUp.text,
+      pass: passUp.text,
+      cPass: cPassUp.text,
+      profilePic: await authRepo.uploadImage(profilePic),
+    )
         .then((response) {
       response.fold(
         (success) {
