@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 class ImageShow extends StatelessWidget {
   const ImageShow({
+    this.profilePic,
     super.key,
   });
+  final String? profilePic;
 
   @override
   Widget build(BuildContext context) {
@@ -12,13 +14,21 @@ class ImageShow extends StatelessWidget {
       height: 100,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: Colors.white, // White circle background
+        color: Colors.white,
+        image: profilePic == null
+            ? null
+            : DecorationImage(
+                image: NetworkImage(profilePic!),
+                fit: BoxFit.cover,
+              ),
       ),
-      child: Icon(
-        Icons.person_outline, // Placeholder profile icon
-        size: 60,
-        color: Colors.black38,
-      ),
+      child: profilePic == null
+          ? Icon(
+              Icons.person_outline, // Placeholder profile icon
+              size: 60,
+              color: Colors.black38,
+            )
+          : null,
     );
   }
 }

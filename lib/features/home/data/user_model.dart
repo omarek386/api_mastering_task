@@ -5,6 +5,7 @@ class UserModel {
   final String createdAt;
   final num latitude;
   final num longitude;
+  final String? profilePic;
 
   UserModel({
     required this.name,
@@ -13,19 +14,20 @@ class UserModel {
     required this.createdAt,
     required this.latitude,
     required this.longitude,
+    required this.profilePic,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
       name: json['user']['name'],
       email: json['user']['email'],
-
+      profilePic: json['user']['profilePic'],
       phoneNumber: json['user']['phone'],
       createdAt: json['user']['createdAt'],
-      // latitude: json['user']['location']['coordinates'][0],
-      // longitude: json['user']['location']['coordinates'][1],
-      latitude: 2,
-      longitude: 3,
+      latitude: json['user']['location']['coordinates'][0],
+      longitude: json['user']['location']['coordinates'][1],
+      // latitude: 2,
+      // longitude: 3,
     );
   }
 
@@ -37,6 +39,7 @@ class UserModel {
       'createdAt': createdAt,
       'latitude': latitude,
       'longitude': longitude,
+      'profilePic': profilePic,
     };
   }
 }

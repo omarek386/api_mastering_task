@@ -1,10 +1,12 @@
 import 'package:api_mastering_task/core/helper/tools/spacer.dart';
+import 'package:api_mastering_task/features/home/presentation/cubit/home_cubit.dart';
 import 'package:api_mastering_task/features/home/presentation/widgets/data_text_box.dart';
 import 'package:api_mastering_task/features/home/presentation/widgets/image_show.dart';
 import 'package:api_mastering_task/features/home/presentation/widgets/logout_button.dart';
 import 'package:api_mastering_task/features/home/presentation/widgets/title_text_box.dart';
 import 'package:api_mastering_task/features/home/presentation/widgets/update_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -19,23 +21,68 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFF091245), // Background color similar to image
 
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Spacing.verticalSpaceExtraLarge(),
-            ImageShow(),
-            Spacing.verticalSpaceLarge(),
-            TitleTextBox(name: name),
-            Spacing.verticalSpaceLarge(),
-            DataTextBox(phone: phone, email: email, coordinates: coordinates),
-            Spacing.verticalSpaceMedium(),
-            UpdateData(),
-            Spacing.verticalSpaceExtraLarge(),
-            LogoutButton(),
-          ],
-        ),
+      body: BlocBuilder<HomeCubit, HomeState>(
+        builder: (context, state) {
+          if (state is HomeSuccess) {
+            return Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Spacing.verticalSpaceExtraLarge(),
+                  SizedBox(
+                    width: 150.w,
+                    height: 150.h,
+                    child: ImageShow(
+                      profilePic: state.userModel.profilePic,
+                    ),
+                  ),
+                  Spacing.verticalSpaceMedium(),
+                  TitleTextBox(name: state.userModel.name),
+                  Spacing.verticalSpaceLarge(),
+                  DataTextBox(
+                      phone: state.userModel.phoneNumber,
+                      email: state.userModel.email,
+                      coordinates:
+                          '[ ${state.userModel.latitude.toString().substring(0, 6)} , ${state.userModel.longitude.toString().substring(0, 6)} ]'),
+                  Spacing.verticalSpaceMedium(),
+                  UpdateData(),
+                  Spacing.verticalSpaceExtraLarge(),
+                  LogoutButton(),
+                ],
+              ),
+            );
+          } else if (state is HomeError) {
+            return Center(
+              child: Text(
+                state.message,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20.sp,
+                ),
+              ),
+            );
+          } else if (state is HomeLoading) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else if (state is HomeInitial) {
+            BlocProvider.of<HomeCubit>(context).getUser();
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            return Center(
+              child: Text(
+                'Something went wrong',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20.sp,
+                ),
+              ),
+            );
+          }
+        },
       ),
     );
   }
