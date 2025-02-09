@@ -35,24 +35,29 @@ class UpdateDataScreen extends StatelessWidget {
               AppInPutField(
                 emailController: TextEditingController(),
                 hint: 'User Name',
+                gkey: GlobalKey<FormState>(),
               ),
               AppInPutField(
                 emailController: TextEditingController(),
                 hint: 'Email Address',
+                gkey: GlobalKey<FormState>(),
               ),
               AppInPutField(
                 emailController: TextEditingController(),
                 hint: 'Phone Number',
+                gkey: GlobalKey<FormState>(),
               ),
               AppInPutField(
                 emailController: TextEditingController(),
                 hint: 'Password',
                 isPassword: true,
+                gkey: GlobalKey<FormState>(),
               ),
               AppInPutField(
                 emailController: TextEditingController(),
                 hint: 'Confirm Password',
                 isPassword: true,
+                gkey: GlobalKey<FormState>(),
               ),
               Spacing.verticalSpaceMedium(),
               UpdateButton(),
