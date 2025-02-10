@@ -1,4 +1,5 @@
 import 'package:api_mastering_task/core/Router/routes.dart';
+import 'package:api_mastering_task/core/services/API/constants/api_keys.dart';
 import 'package:api_mastering_task/core/services/Database/cache_helper.dart';
 import 'package:api_mastering_task/core/themes/app_theme_data.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,9 @@ class MyApp extends StatelessWidget {
           theme: Appthemedata.themeData,
           debugShowCheckedModeBanner: false,
           onGenerateRoute: appRouter.onGenerateRoute,
-          initialRoute: Routes.login,
+          initialRoute: CacheHelper.getData(key: ApiKeys.token) != null
+              ? Routes.home
+              : Routes.login,
         );
       },
     );

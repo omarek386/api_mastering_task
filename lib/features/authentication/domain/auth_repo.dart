@@ -65,39 +65,9 @@ class AuthRepo {
     }
   }
 
-  // Future<Either<String, ErrorModel>> updateProfile(
-  //     {required String name,
-  //     required String phone,
-  //     required String email,
-  //     required String pass,
-  //     required String cPass,
-  //     required XFile profilePic}) async {
-  //   try {
-  //     final response = await apiConsumer.put(
-  //       ApiEndpoints.updateProfile,
-  //       isFormData: true,
-  //       data: {
-  //         ApiKeys.name: name,
-  //         ApiKeys.phone: phone,
-  //         ApiKeys.email: email,
-  //         ApiKeys.password: pass,
-  //         ApiKeys.confirmPassword: cPass,
-  //         ApiKeys.location:
-  //             '{"name":"methalfa","address":"meet halfa","coordinates":[30.1572709,31.224779]}',
-  //         ApiKeys.profilePic: profilePic,
-  //       },
-  //     );
-  //     return Left(response['message']);
-  //   } on ServerErrors catch (e) {
-  //     return Right(e.errorModel);
-  //   }
-  // }
-
   Future addProfilePic() async {
     final XFile? pickedFile =
         await ImagePicker().pickImage(source: ImageSource.gallery);
-    await CacheHelper.saveData(
-        key: ApiKeys.profilePic, value: pickedFile?.path);
     return pickedFile;
   }
 

@@ -4,9 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ImageEdit extends StatelessWidget {
-  const ImageEdit({super.key, required this.onPressed, this.fileImage});
+  const ImageEdit(
+      {super.key, required this.onPressed, this.fileImage, this.networkImage});
   final void Function()? onPressed;
   final XFile? fileImage;
+  final String? networkImage;
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +18,12 @@ class ImageEdit extends StatelessWidget {
         CircleAvatar(
           radius: 50.r,
           backgroundColor: Colors.white,
-          backgroundImage:
-              fileImage != null ? FileImage(File(fileImage!.path)) : null,
-          child: fileImage == null
+          backgroundImage: fileImage != null
+              ? FileImage(File(fileImage!.path))
+              : networkImage != null
+                  ? NetworkImage(networkImage!)
+                  : null,
+          child: fileImage == null && networkImage == null
               ? Icon(
                   Icons.person_outline,
                   size: 60.r,

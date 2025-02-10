@@ -2,6 +2,7 @@ import 'package:api_mastering_task/core/Router/routes.dart';
 import 'package:api_mastering_task/core/services/API/consumers/dio_consumer.dart';
 import 'package:api_mastering_task/features/authentication/presentation/cubit/auth_cubit.dart';
 import 'package:api_mastering_task/features/home/presentation/cubit/home_cubit.dart';
+import 'package:api_mastering_task/features/update/presentation/cubit/update_profile_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,7 +33,12 @@ class AppRouter {
             builder: (_) => BlocProvider(
                 create: (context) => authCubit, child: const SignUpScreen()));
       case Routes.updateProfile:
-        return MaterialPageRoute(builder: (_) => const UpdateDataScreen());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) =>
+                      UpdateProfileCubit(apiConsumer: DioConsumer(dio: Dio())),
+                  child: const UpdateDataScreen(),
+                ));
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(

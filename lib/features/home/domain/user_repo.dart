@@ -2,6 +2,8 @@
 
 import 'dart:developer';
 
+import 'package:api_mastering_task/core/services/API/constants/api_keys.dart';
+import 'package:api_mastering_task/core/services/Database/cache_helper.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../../core/services/API/Errors/error_model.dart';
@@ -20,7 +22,8 @@ class UserRepo {
     try {
       final response = await api.get(ApiEndpoints.getUserData);
       UserModel user = UserModel.fromJson(response);
-
+      await CacheHelper.saveData(
+          key: ApiKeys.profilePic, value: user.profilePic);
       return Left(user);
     } on ServerErrors catch (e) {
       return Right(e.errorModel);

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../cubit/update_profile_cubit.dart';
 
 class UpdateButton extends StatelessWidget {
   const UpdateButton({
@@ -9,7 +12,9 @@ class UpdateButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        context.read<UpdateProfileCubit>().updateProfile();
+      },
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color(0xFF4FC3F7), // Slightly darker blue
         foregroundColor: Colors.black, // Text color
