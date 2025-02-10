@@ -6,10 +6,10 @@ A modern Flutter application demonstrating clean architecture, API integration, 
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
 
-<img src="screenshots/screen1.png" width="250" alt="Home Screen"/>
-<img src="screenshots/screen2.png" width="250" alt="Profile Screen"/>
-<img src="screenshots/screen3.png" width="250" alt="Update Screen"/>
-<img src="screenshots/screen4.png" width="250" alt="Details Screen"/>
+<img src="https://github.com/user-attachments/assets/f036dcf7-76c3-49db-995d-0afc85959d09" width="200" alt="Home Screen"/>
+<img src="https://github.com/user-attachments/assets/25b99dab-2383-4037-865a-c3f8fe3e0b1f" width="200" alt="Update Screen"/>
+<img src="https://github.com/user-attachments/assets/cc0b132d-32a9-4b94-9c65-4c0e776e2bc4" width="200" alt="login Screen"/>
+<img src="https://github.com/user-attachments/assets/660f1c9b-78ae-472f-a6a5-c56069336e2a" width="200" alt="sign up Screen"/>
 
 </div>
 
@@ -75,10 +75,9 @@ lib/
 
 ## 🔧 Technical Stack
 
-- **State Management**: [Your State Management Solution]
-- **API Integration**: [Your API Client]
+- **State Management**: Bloc
+- **API Integration**: Dio 
 - **Navigation**: Flutter Navigation 2.0
-- **Dependency Injection**: [Your DI Solution]
 - **Testing**: Unit and Widget tests
 
 ## 📝 Contributing
@@ -95,6 +94,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🤝 Contact
 
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter)
+Your Name - [@Omar Khalifa](https://www.instagram.com/omarek386/)
 
-Project Link: [https://github.com/yourusername/api_mastering_task](https://github.com/yourusername/api_mastering_task)
+Project Link: [https://github.com/yourusername/api_mastering_task](https://github.com/omarek386/api_mastering_task)
