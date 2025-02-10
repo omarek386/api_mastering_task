@@ -1,13 +1,14 @@
-import 'package:api_mastering_task/core/helper/tools/spacer.dart';
-import 'package:api_mastering_task/features/home/presentation/cubit/home_cubit.dart';
-import 'package:api_mastering_task/features/home/presentation/widgets/data_text_box.dart';
-import 'package:api_mastering_task/features/home/presentation/widgets/image_show.dart';
-import 'package:api_mastering_task/features/home/presentation/widgets/logout_button.dart';
-import 'package:api_mastering_task/features/home/presentation/widgets/title_text_box.dart';
-import 'package:api_mastering_task/features/home/presentation/widgets/update_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../core/helper/tools/spacer.dart';
+import '../cubit/home_cubit.dart';
+import '../widgets/data_text_box.dart';
+import '../widgets/image_show.dart';
+import '../widgets/logout_button.dart';
+import '../widgets/title_text_box.dart';
+import '../widgets/update_data.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

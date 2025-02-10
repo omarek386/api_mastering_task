@@ -1,7 +1,7 @@
-import 'package:api_mastering_task/core/Router/routes.dart';
-import 'package:api_mastering_task/core/helper/Extensions/navigation.dart';
-import 'package:api_mastering_task/core/widget/image_edit.dart';
-import 'package:api_mastering_task/features/authentication/presentation/cubit/auth_cubit.dart';
+import '../../../../core/Router/routes.dart';
+import '../../../../core/helper/Extensions/navigation.dart';
+import '../../../../core/widget/image_edit.dart';
+import '../cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

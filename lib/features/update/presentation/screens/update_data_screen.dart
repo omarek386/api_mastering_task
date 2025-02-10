@@ -1,11 +1,11 @@
 import 'dart:developer';
 
-import 'package:api_mastering_task/core/Router/routes.dart';
-import 'package:api_mastering_task/core/helper/Extensions/navigation.dart';
-import 'package:api_mastering_task/core/widget/app_in_put_field.dart';
-import 'package:api_mastering_task/core/widget/image_edit.dart';
-import 'package:api_mastering_task/features/update/presentation/cubit/update_profile_cubit.dart';
-import 'package:api_mastering_task/features/update/presentation/widgets/update_button.dart';
+import '../../../../core/Router/routes.dart';
+import '../../../../core/helper/Extensions/navigation.dart';
+import '../../../../core/widget/app_in_put_field.dart';
+import '../../../../core/widget/image_edit.dart';
+import '../cubit/update_profile_cubit.dart';
+import '../widgets/update_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

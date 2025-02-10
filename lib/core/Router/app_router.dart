@@ -1,8 +1,8 @@
-import 'package:api_mastering_task/core/Router/routes.dart';
-import 'package:api_mastering_task/core/services/API/consumers/dio_consumer.dart';
-import 'package:api_mastering_task/features/authentication/presentation/cubit/auth_cubit.dart';
-import 'package:api_mastering_task/features/home/presentation/cubit/home_cubit.dart';
-import 'package:api_mastering_task/features/update/presentation/cubit/update_profile_cubit.dart';
+import 'routes.dart';
+import '../services/API/consumers/dio_consumer.dart';
+import '../../features/authentication/presentation/cubit/auth_cubit.dart';
+import '../../features/home/presentation/cubit/home_cubit.dart';
+import '../../features/update/presentation/cubit/update_profile_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

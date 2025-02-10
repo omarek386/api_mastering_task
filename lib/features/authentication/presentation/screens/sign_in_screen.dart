@@ -1,16 +1,16 @@
-import 'package:api_mastering_task/core/Router/routes.dart';
-import 'package:api_mastering_task/core/helper/Extensions/navigation.dart';
-import 'package:api_mastering_task/core/helper/tools/spacer.dart';
-import 'package:api_mastering_task/core/widget/app_in_put_field.dart';
-import 'package:api_mastering_task/features/authentication/presentation/cubit/auth_cubit.dart';
-
-import 'package:api_mastering_task/features/authentication/presentation/widgets/auth_title_text.dart';
-import 'package:api_mastering_task/features/authentication/presentation/widgets/sign_in_button.dart';
-import 'package:api_mastering_task/features/authentication/presentation/widgets/sign_up_here.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+
+import '../../../../core/Router/routes.dart';
+import '../../../../core/helper/Extensions/navigation.dart';
+import '../../../../core/helper/tools/spacer.dart';
+import '../../../../core/widget/app_in_put_field.dart';
+import '../cubit/auth_cubit.dart';
+import '../widgets/auth_title_text.dart';
+import '../widgets/sign_in_button.dart';
+import '../widgets/sign_up_here.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});

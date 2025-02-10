@@ -1,7 +1,7 @@
-import 'package:api_mastering_task/core/Router/routes.dart';
-import 'package:api_mastering_task/core/services/API/constants/api_keys.dart';
-import 'package:api_mastering_task/core/services/Database/cache_helper.dart';
-import 'package:api_mastering_task/core/themes/app_theme_data.dart';
+import 'core/Router/routes.dart';
+import 'core/services/API/constants/api_keys.dart';
+import 'core/services/Database/cache_helper.dart';
+import 'core/themes/app_theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/Router/app_router.dart';

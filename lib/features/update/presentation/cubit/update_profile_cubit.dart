@@ -1,7 +1,7 @@
-import 'package:api_mastering_task/core/services/API/constants/api_keys.dart';
-import 'package:api_mastering_task/core/services/API/consumers/api_consumer.dart';
-import 'package:api_mastering_task/core/services/Database/cache_helper.dart';
-import 'package:api_mastering_task/features/update/domain/update_repo.dart';
+import '../../../../core/services/API/constants/api_keys.dart';
+import '../../../../core/services/API/consumers/api_consumer.dart';
+import '../../../../core/services/Database/cache_helper.dart';
+import '../../domain/update_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';

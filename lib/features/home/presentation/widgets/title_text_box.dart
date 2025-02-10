@@ -1,4 +1,4 @@
-import 'package:api_mastering_task/core/themes/fonts.dart';
+import '../../../../core/themes/fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

@@ -1,6 +1,6 @@
-import 'package:api_mastering_task/core/Router/routes.dart';
-import 'package:api_mastering_task/core/helper/Extensions/navigation.dart';
-import 'package:api_mastering_task/core/services/Database/cache_helper.dart';
+import '../../../../core/Router/routes.dart';
+import '../../../../core/helper/Extensions/navigation.dart';
+import '../../../../core/services/Database/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
