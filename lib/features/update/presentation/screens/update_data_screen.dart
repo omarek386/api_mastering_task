@@ -18,7 +18,7 @@ class UpdateDataScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF091245), // Background color similar to image
+      backgroundColor: Color(0xFF091245),
 
       body: BlocConsumer<UpdateProfileCubit, UpdateProfileState>(
         builder: (context, state) {
@@ -27,12 +27,6 @@ class UpdateDataScreen extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           }
-          // else if (state is UpdateProfileError) {
-          //   return Center(
-          //     child:
-          //         Text(state.errorMessage, style: TextStyle(color: Colors.red)),
-          //   );
-          // }
           else if (state is UpdateProfileSuccess) {
             return Center(
               child: Text('Success'),
