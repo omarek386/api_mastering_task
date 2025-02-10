@@ -26,8 +26,6 @@ class UserModel {
       createdAt: json['user']['createdAt'],
       latitude: json['user']['location']['coordinates'][0],
       longitude: json['user']['location']['coordinates'][1],
-      // latitude: 2,
-      // longitude: 3,
     );
   }
 
